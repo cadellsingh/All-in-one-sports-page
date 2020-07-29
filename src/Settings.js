@@ -10,10 +10,9 @@ const Settings = (props) => {
 
   const entries = Object.entries(sports)
 
-  // change inputs variable name
-  const sportsChecked = []
+  const checkedSports = []
   for (const [sport, checked] of entries) {
-    sportsChecked.push(
+    checkedSports.push(
       <label key={sport}>
         <input
           type="checkbox"
@@ -27,7 +26,7 @@ const Settings = (props) => {
   return (
     <div>
       <h1 onClick={handleClick}>Settings</h1>
-      {displaySettings && sportsChecked}
+      {displaySettings && checkedSports}
     </div>
   )
 }
