@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './App.css';
 import SidebarSports from './SidebarSports';
 import Settings from './Settings';
+import SportsData from './SportsData';
 
 // possibly move state to this component
 // and re-structure components like:
 // SidebarSports
 // Settings 
-// MainData -> News / Scores
+// Sports -> News / Scores
 
 const allSports = {
   "NBA": true,
@@ -21,7 +22,10 @@ const allSports = {
 
 const App = () => {
   const [selectedSports, setSelectedSports] = useState(allSports)
+  const [sportToFetch, setSportToFetch] = useState("")
 
+  // Callback
+  // select/deselect which sport you want to view
   const toggleSelectedSport = (sport) => {
     setSelectedSports(prevState => {
       const updatedSports = { ...prevState }
@@ -30,16 +34,22 @@ const App = () => {
     })
   }
 
+  // callback function
+  const getSport = (sport) => {
+    setSportToFetch(sport)
+  }
+
   return (
     <div>
       <SidebarSports
         sports={selectedSports}
+        getSport={getSport}
       />
       <Settings
         sports={selectedSports}
         toggleSelectedSport={toggleSelectedSport}
       />
-      {/* <MainComponentData/> */}
+      <SportsData sport={sportToFetch}/>
     </div>
   )
 }
