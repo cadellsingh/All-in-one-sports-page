@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const Settings = (props) => {
-  const { sports, toggleSelectedSport } = props
-  const [displaySettings, setdisplaySettings] = useState(false)
+  const { sports, toggleSelectedSport } = props;
+  const [displaySettings, setdisplaySettings] = useState(false);
 
   const handleClick = () => {
-    setdisplaySettings(prevState => !prevState)
-  }
+    setdisplaySettings((prevState) => !prevState);
+  };
 
-  const entries = Object.entries(sports)
+  const entries = Object.entries(sports);
 
-  const checkedSports = []
+  const checkedSports = [];
   for (const [sport, checked] of entries) {
     checkedSports.push(
       <label key={sport}>
@@ -18,9 +18,10 @@ const Settings = (props) => {
           type="checkbox"
           checked={checked}
           onChange={(event) => toggleSelectedSport(sport)}
-        /> {sport}
+        />{" "}
+        {sport}
       </label>
-    )
+    );
   }
 
   return (
@@ -28,7 +29,7 @@ const Settings = (props) => {
       <h1 onClick={handleClick}>Settings</h1>
       {displaySettings && checkedSports}
     </div>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;
