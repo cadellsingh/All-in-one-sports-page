@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import SelectSports from './SelectSports'
+import Settings from './Settings'
 
-// contains all the sports
-// going to maintain state -> selected or not selected
-// if selected, display to screen
-
-const sports = {
+const allSports = {
   "NBA": true,
   "NFL": true,
   "MLB": true,
@@ -16,16 +12,42 @@ const sports = {
 }
 
 const SidebarSports = () => {
-  // const [isSelected, setIsSelected] = useState(true)
-  // const [sportsData] = useState("")
-  const [selectedSports, setSelectedSports] = useState(sports)
+  const [selectedSports, setSelectedSports] = useState(allSports)
+  const [displaySettings, setdisplaySettings] = useState(false)
 
-  // const changeSelectedSports = () => {
-  //   setIsSelected(false)
-  // }
+  const handleClick = () => {
+    setdisplaySettings(prevState => !prevState)
+  }
+
+  const toggleSelectedSport = (sport) => {
+    setSelectedSports(prevState => {
+      const updatedSports = { ...prevState }
+      updatedSports[sport] = !prevState[sport]
+      return updatedSports
+    })
+  }
+
+  // null here can be the main component with the data
+  // and prob re-name displayComponent
+  const displayComponent = displaySettings ?
+    <Settings
+      sports={selectedSports}
+      toggleSelectedSport={toggleSelectedSport}
+    />
+    : null
+
+  const entries = Object.entries(selectedSports)
+  const displaySports = []
+  for (const [sport, isSelected] of entries) {
+    displaySports.push(isSelected && <li key={sport}>{sport}</li>)
+  }
 
   return (
-    <SelectSports sports={selectedSports} />
+    <div>
+      {displaySports}
+      <h1 onClick={handleClick}>Settings</h1>
+      {displayComponent}
+    </div>
   )
 }
 
