@@ -4,12 +4,6 @@ import SidebarSports from "./SidebarSports";
 import Settings from "./Settings";
 import SportsData from "./SportsData";
 
-// possibly move state to this component
-// and re-structure components like:
-// SidebarSports
-// Settings
-// Sports -> News / Scores
-
 // cmd + shift + l for console.log
 
 const allSports = {
@@ -25,8 +19,9 @@ const allSports = {
 const App = () => {
   const [selectedSports, setSelectedSports] = useState(allSports);
   const [sportToFetch, setSportToFetch] = useState("");
+  const [displaySettings, setDisplaySettings] = useState(true);
 
-  // Callback
+  // Callback functions
   // select/deselect which sport you want to view
   const toggleSelectedSport = (sport) => {
     setSelectedSports((prevState) => {
@@ -36,19 +31,28 @@ const App = () => {
     });
   };
 
-  // callback function
   const getSport = (sport) => {
     setSportToFetch(sport);
   };
 
+  const handleClick = () => {
+    setDisplaySettings((prevState) => !prevState);
+  };
+
+  // could prob put setDisplaySettings in getSport event handler
+
   return (
     <div>
       <SidebarSports sports={selectedSports} getSport={getSport} />
-      <Settings
-        sports={selectedSports}
-        toggleSelectedSport={toggleSelectedSport}
-      />
-      <SportsData sport={sportToFetch} />
+      <h1 onClick={handleClick}>Settings</h1>
+      {displaySettings ? (
+        <Settings
+          sports={selectedSports}
+          toggleSelectedSport={toggleSelectedSport}
+        />
+      ) : (
+        <SportsData sport={sportToFetch} />
+      )}
     </div>
   );
 };

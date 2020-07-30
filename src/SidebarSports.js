@@ -19,6 +19,3 @@ const SidebarSports = (props) => {
 };
 
 export default SidebarSports;
-
-// may have to add an onClick on li tag
-// when clicked that value is sent to the SportsData Component

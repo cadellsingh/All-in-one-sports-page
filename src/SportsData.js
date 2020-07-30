@@ -7,7 +7,8 @@ const SportsData = (props) => {
 
   return (
     <div>
-      {sport}
+      <p>{sport}</p>
+      <p>test</p>
     </div>
   )
 }
