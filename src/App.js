@@ -10,7 +10,7 @@ const allSports = {
   NBA: true,
   NFL: true,
   MLB: true,
-  Hockey: true,
+  NHL: true,
   "College Football": true,
   "College Basketball": true,
   Soccer: true,
@@ -19,10 +19,10 @@ const allSports = {
 const App = () => {
   const [selectedSports, setSelectedSports] = useState(allSports);
   const [sportToFetch, setSportToFetch] = useState("");
-  const [displaySettings, setDisplaySettings] = useState(true);
+  const [displaySettings, setDisplaySettings] = useState(false);
 
   // Callback functions
-  // select/deselect which sport you want to view
+  // select/deselect which sport user wants to view
   const toggleSelectedSport = (sport) => {
     setSelectedSports((prevState) => {
       const updatedSports = { ...prevState };
@@ -33,13 +33,12 @@ const App = () => {
 
   const getSport = (sport) => {
     setSportToFetch(sport);
+    setDisplaySettings(false);
   };
 
   const handleClick = () => {
     setDisplaySettings((prevState) => !prevState);
   };
-
-  // could prob put setDisplaySettings in getSport event handler
 
   return (
     <div>
@@ -58,10 +57,3 @@ const App = () => {
 };
 
 export default App;
-
-// settings and main component will be taking a prop -> whether or not to display component
-
-// possibly put useEffects in a handle button click
-// or
-// when sport is selected and goes to different component, that component takes sport as prop and fetches data
-// so the actual sport data will be in the other (child) component
