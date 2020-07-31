@@ -10,6 +10,8 @@ const allSports = {
   "College Basketball": true,
 };
 
+// move all sports back up to APP Component
+
 const SidebarSports = (props) => {
   const { getSport } = props;
   const [selectedSports, setSelectedSports] = useState(allSports);
@@ -23,10 +25,11 @@ const SidebarSports = (props) => {
     });
   };
 
+  // displays selected sports
   const entries = Object.entries(selectedSports);
-  const displaySports = [];
+  const displaySelectedSports = [];
   for (const [sport, isSelected] of entries) {
-    displaySports.push(
+    displaySelectedSports.push(
       isSelected && (
         <li key={sport} onClick={(event) => getSport(sport)}>
           {sport}
@@ -37,7 +40,7 @@ const SidebarSports = (props) => {
 
   return (
     <div>
-      {displaySports}
+      {displaySelectedSports}
       <Settings
         sports={selectedSports}
         toggleSelectedSport={toggleSelectedSport}

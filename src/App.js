@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import SidebarSports from "./SidebarSports";
-import Settings from "./Settings";
 import SportsData from "./SportsData";
 
 // cmd + shift + l for console.log
 
-const allSports = {
-  NBA: true,
-  NFL: true,
-  MLB: true,
-  NHL: true,
-  "College Football": true,
-  "College Basketball": true,
-};
-
+// this should prob go back in sportsData component
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
   "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news",
@@ -25,7 +16,6 @@ const newsUrls = [
 ];
 
 const App = () => {
-  // const [selectedSports, setSelectedSports] = useState(allSports);
   const [sportToFetch, setSportToFetch] = useState("");
   const [sportsNews, setSportsNews] = useState([]);
 
@@ -44,9 +34,23 @@ const App = () => {
     console.log("i fire once");
   }, []);
 
+  // prob put this in the SportNews Component
+
+  const { header, articles } = sportsNews;
+
+  // console.log(sportsNews);
+
+  // if (articles !== undefined) {
+  //   const { headline, description, links } = articles[0];
+  //   const { web } = links;
+  //   console.log(header);
+  //   console.log("web: ", web.href); // web url
+  //   console.log("description: ", description);
+  //   console.log("headline: ", headline);
+  // }
+
   const getSport = (sport) => {
     setSportToFetch(sport);
-    // setDisplaySettings(false);
   };
 
   return (

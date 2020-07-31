@@ -9,7 +9,6 @@ const Settings = (props) => {
   }
 
   const entries = Object.entries(sports);
-
   const checkedSports = [];
   for (const [sport, checked] of entries) {
     checkedSports.push(
