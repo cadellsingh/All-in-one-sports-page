@@ -9,7 +9,6 @@ const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news",
   "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news",
   "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news",
-  "https://site.api.espn.com/apis/site/v2/sports/soccer/:league/news",
 ];
 
 // can prob convert this into one
@@ -24,31 +23,37 @@ const newsUrls = [
 // ]
 
 const SportsData = (props) => {
-  const { sport } = props;
-  const [sportsNews, setSportsNews] = useState({});
+  const { sport, sports } = props;
+  const [sportsNews, setSportsNews] = useState([]);
   const [sportsScores, setSportScores] = useState({});
 
-  // if string === "" then api call for all sports
+  // display all sports data based on whats true in sports object
+  // console.log(sports);
 
-  async function fetchData() {
-    const res = await fetch(
-      "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news" // could pass in url as parameter
-    );
-    res.json().then((res) => setSportsNews(res));
-  }
+  // if string === "" then api call for all sports
 
   // possibly fetch all the data
   // then go thru data and send relevant info to the child compon via props
 
   useEffect(() => {
+    async function fetchData() {
+      for (const newsUrl of newsUrls) {
+        const res = await fetch(newsUrl);
+        res.json().then((res) => {
+          console.log("res: ", res);
+          // url.push(res);
+          setSportsNews(state => [...state, res]);
+        });
+      }
+    }
+
     fetchData();
     console.log("i fire once");
-    console.log(sport);
   }, []);
 
   const { header, articles } = sportsNews;
 
-  // console.log(sportsNews)
+  console.log(sportsNews);
 
   if (articles !== undefined) {
     const { headline, description, links } = articles[0];

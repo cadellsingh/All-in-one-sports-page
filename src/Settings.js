@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Settings = (props) => {
   const { sports, toggleSelectedSport } = props;
+  const [displaySettings, setDisplaySettings] = useState(false);
+
+  const handleClick = () => {
+    setDisplaySettings((prevState) => !prevState)
+  }
 
   const entries = Object.entries(sports);
 
@@ -21,7 +26,8 @@ const Settings = (props) => {
 
   return (
     <div>
-      {checkedSports}
+      <h1 onClick={handleClick}>Settings</h1>
+      {displaySettings && checkedSports}
     </div>
   );
 };

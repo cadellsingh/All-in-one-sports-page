@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import Settings from "./Settings";
+
+const allSports = {
+  NBA: true,
+  NFL: true,
+  MLB: true,
+  NHL: true,
+  "College Football": true,
+  "College Basketball": true,
+};
 
 const SidebarSports = (props) => {
-  const { sports, getSport } = props;
+  const { getSport } = props;
+  const [selectedSports, setSelectedSports] = useState(allSports);
 
-  const entries = Object.entries(sports);
+  // select/deselect which sport user wants to view
+  const toggleSelectedSport = (sport) => {
+    setSelectedSports((prevState) => {
+      const updatedSports = { ...prevState };
+      updatedSports[sport] = !prevState[sport];
+      return updatedSports;
+    });
+  };
+
+  const entries = Object.entries(selectedSports);
   const displaySports = [];
   for (const [sport, isSelected] of entries) {
     displaySports.push(
@@ -15,7 +35,16 @@ const SidebarSports = (props) => {
     );
   }
 
-  return <div>{displaySports}</div>;
+  return (
+    <div>
+      {displaySports}
+      <Settings
+        sports={selectedSports}
+        toggleSelectedSport={toggleSelectedSport}
+      />
+    </div>
+  )
+  
 };
 
 export default SidebarSports;
