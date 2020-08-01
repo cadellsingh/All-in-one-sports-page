@@ -5,7 +5,7 @@ const allSports = {
   NBA: true,
   NFL: true,
   MLB: true,
-  NHL: true,
+  NHL: true, 
   "College Football": true,
   "College Basketball": true,
 };
@@ -51,3 +51,4 @@ const SidebarSports = (props) => {
 };
 
 export default SidebarSports;
+
