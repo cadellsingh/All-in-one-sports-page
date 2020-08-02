@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // can make into object to match with sport
 // this example may be used for scores
@@ -7,10 +7,18 @@ import React, { useState, useEffect } from "react";
 const SportsNews = (props) => {
   const { sport, sports } = props;
 
+  // add unique value to key
+
+  // extracts relevant info from sports object & displays it
+  // { links } = article
+  // { web } = links
+  // ^ giving trouble 
   const sportDetails = [];
   sports.map((sport) => {
     const { header, articles } = sport;
+
     sportDetails.push(<h1>{header}</h1>);
+
     return articles.map((article) => {
       const { headline, description } = article;
 

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import SidebarSports from "./SidebarSports";
 import SportsNews from "./SportsNews";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+
 
 // this should prob go back in sportsData component
 const newsUrls = [
@@ -35,11 +38,13 @@ const App = () => {
   };
 
   return (
-    <div>
-      <SidebarSports getSport={getSport} />
-      <SportsNews sport={sportToFetch} sports={sportsNews} />
-      {/* <SportsScores /> */}
-    </div>
+    <Container>
+      <Row>
+        <SidebarSports getSport={getSport} />
+        <SportsNews sport={sportToFetch} sports={sportsNews} />
+        {/* <SportsScores /> */}
+      </Row>
+    </Container>
   );
 };
 
