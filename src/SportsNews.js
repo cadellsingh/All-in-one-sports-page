@@ -45,9 +45,8 @@ const SportsNews = (props) => {
     <Col className="sports-news">
       <h3>Latest News</h3>
       <h2>NCAAF</h2>
-      <Container fluid>
         <Row>
-          <Col className="sports-news-details" lg={4}>
+          <Col lg={4}>
             <div className="border">
               <Image
                 src="https://a.espncdn.com/photo/2020/0413/r688898_600x600_1-1.jpg"
@@ -61,7 +60,7 @@ const SportsNews = (props) => {
               </p>
             </div>
           </Col>
-          <Col className="sports-news-details" lg={4}>
+          <Col lg={4}>
             <div className="border">
               <Image
                 src="https://a.espncdn.com/photo/2020/0413/r688898_600x600_1-1.jpg"
@@ -76,10 +75,8 @@ const SportsNews = (props) => {
             </div>
           </Col>
         </Row>
-      </Container>
       {/* <p>{sport}</p> */}
       {/* {sportDetails} */}
-      {/* <p>testing</p> */}
     </Col>
   );
 };

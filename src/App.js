@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 import SportsNews from "./SportsNews";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -38,9 +38,10 @@ const App = () => {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="main-container">
+      <Navbar getSport={getSport} />
+
       <Row>
-        <Sidebar getSport={getSport} />
         <SportsNews sport={sportToFetch} sports={sportsNews} />
       </Row>
     </Container>

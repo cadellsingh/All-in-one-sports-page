@@ -25,9 +25,7 @@ const Settings = (props) => {
 
   return (
     <div className="settings">
-      <span className="text" onClick={handleClick}>
-        Settings
-      </span>
+      <h3 onClick={handleClick}>Settings</h3>
       {displaySettings && checkedSports}
     </div>
   );

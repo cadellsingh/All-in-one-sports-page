@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import Settings from "./Settings";
 import Col from "react-bootstrap/Col";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Row from "react-bootstrap/Row";
 
 const allSports = {
   NBA: true,
   NFL: true,
   MLB: true,
   NHL: true,
-  "College Football": true,
-  "College Basketball": true,
+  NCAAF: true,
+  NCAA: true,
 };
 
 // move all sports back up to APP Component
@@ -32,24 +36,30 @@ const SidebarSports = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <ul className="selectedSports">
-          <li key={sport} onClick={(event) => getSport(sport)}>
-            <span className="text">{sport}</span>
-          </li>
-        </ul>
+        <Nav.Item as="li" key={sport} onClick={(event) => getSport(sport)}>
+          <Nav.Link>{sport}</Nav.Link>
+        </Nav.Item>
       )
     );
   }
 
   return (
-    <Col lg={3} xl={3} md={3} className="sidebar">
-      <h1>All in one - Sports</h1>
-      {displaySelectedSports}
-      <Settings
-        sports={selectedSports}
-        toggleSelectedSport={toggleSelectedSport}
-      />
-    </Col>
+    <Row className="navbar">
+      <Col>
+        <Nav>
+          <h1>All in one</h1>
+          <Settings
+            sports={selectedSports}
+            toggleSelectedSport={toggleSelectedSport}
+          />
+        </Nav>
+      </Col>
+      <Col>
+        <Nav className="justify-content-end" as="ul">
+          {displaySelectedSports}
+        </Nav>
+      </Col>
+    </Row>
   );
 };
 

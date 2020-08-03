@@ -1,36 +1,37 @@
-/* SIDEBAR STYLING */
-.sidebar {
-  background: linear-gradient(180deg, #373B44, #4286f4);
+.main-container {
+  background: linear-gradient(#2193b0, #6dd5ed);
   height: 100vh;
-  padding-top: 30px;
-  font-size: 23px;
+}
+
+/* NAVBAR STYLING */
+.nav-link {
+  font-size: 20px;
   color: black;
 }
 
-.sidebar h1 {
-  margin-left: 40px;
-  font-size: 25px;
-  padding-bottom: 30px;
-}
-
-.selectedSports {
-  list-style: none;
-  padding-right: 0;
-}
-
-.text:hover {
+.nav-link:hover {
   color: white;
   cursor: pointer;
 }
 
-/* SETTINGS STYLING */
-.settings span {
-  margin-left: 40px;
+.navbar h1 {
+  font-size: 25px;
 }
+
+/* SETTINGS STYLING */
+.settings h3 {
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.settings h3:hover {
+  color: white;
+  cursor: pointer;
+}
+
 
 /* SPORTS NEWS STYLING */
 .sports-news {
-  background-color: yellow;
   padding-top: 30px;
 }
 
@@ -44,7 +45,7 @@
   padding-bottom: 20px;
 }
 
-.sports-news-details p {
+.sports-news p {
   padding-top: 8px;
   text-align: center;
 }
