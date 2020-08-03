@@ -1,5 +1,60 @@
 /* SIDEBAR STYLING */
+.sidebar {
+  background: linear-gradient(180deg, #373B44, #4286f4);
+  height: 100vh;
+  padding-top: 30px;
+  font-size: 23px;
+  color: black;
+}
 
-.sidebar-sports {
+.sidebar h1 {
+  margin-left: 40px;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+
+.selectedSports {
+  list-style: none;
+  padding-right: 0;
+}
+
+.text:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* SETTINGS STYLING */
+.settings span {
+  margin-left: 40px;
+}
+
+/* SPORTS NEWS STYLING */
+.sports-news {
+  background-color: yellow;
+  padding-top: 30px;
+}
+
+.sports-news h3 {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.sports-news h2 {
+  font-size: 25px;
+  padding-bottom: 20px;
+}
+
+.sports-news-details p {
+  padding-top: 8px;
+  text-align: center;
+}
+
+.border {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.border:hover {
   background-color: green;
+  cursor: pointer;
 }
