@@ -5,8 +5,8 @@ const Settings = (props) => {
   const [displaySettings, setDisplaySettings] = useState(false);
 
   const handleClick = () => {
-    setDisplaySettings((prevState) => !prevState)
-  }
+    setDisplaySettings((prevState) => !prevState);
+  };
 
   const entries = Object.entries(sports);
   const checkedSports = [];
@@ -24,8 +24,10 @@ const Settings = (props) => {
   }
 
   return (
-    <div>
-      <h1 onClick={handleClick}>Settings</h1>
+    <div className="settings">
+      <span className="text" onClick={handleClick}>
+        Settings
+      </span>
       {displaySettings && checkedSports}
     </div>
   );

@@ -1,4 +1,8 @@
 import React from "react";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import Container from "react-bootstrap/Container";
 
 // can make into object to match with sport
 // this example may be used for scores
@@ -12,8 +16,9 @@ const SportsNews = (props) => {
   // extracts relevant info from sports object & displays it
   // { links } = article
   // { web } = links
-  // ^ giving trouble 
+  // ^ giving trouble
   const sportDetails = [];
+  // since im using map i can prob put this in a function and not use sportsDetails
   sports.map((sport) => {
     const { header, articles } = sport;
 
@@ -37,10 +42,45 @@ const SportsNews = (props) => {
   // when sport === "" then display news for all sports
 
   return (
-    <div>
-      <p>{sport}</p>
-      {sportDetails}
-    </div>
+    <Col className="sports-news">
+      <h3>Latest News</h3>
+      <h2>NCAAF</h2>
+      <Container fluid>
+        <Row>
+          <Col className="sports-news-details" lg={4}>
+            <div className="border">
+              <Image
+                src="https://a.espncdn.com/photo/2020/0413/r688898_600x600_1-1.jpg"
+                className="img-fluid"
+                rounded
+              />
+              <p>
+                Washington State coach Nick Rolovich tells WR Kassidy Woods that
+                joining the Pac-12 player unity group would create "an issue" with
+                the program.
+              </p>
+            </div>
+          </Col>
+          <Col className="sports-news-details" lg={4}>
+            <div className="border">
+              <Image
+                src="https://a.espncdn.com/photo/2020/0413/r688898_600x600_1-1.jpg"
+                className="img-fluid"
+                rounded
+              />
+              <p>
+                Washington State coach Nick Rolovich tells WR Kassidy Woods that
+                joining the Pac-12 player unity group would create "an issue" with
+                the program.
+              </p>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+      {/* <p>{sport}</p> */}
+      {/* {sportDetails} */}
+      {/* <p>testing</p> */}
+    </Col>
   );
 };
 

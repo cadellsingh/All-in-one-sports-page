@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Settings from "./Settings";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
-
 
 const allSports = {
   NBA: true,
@@ -35,17 +32,18 @@ const SidebarSports = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <ListGroup variant="flush">
-          <ListGroup.Item key={sport} onClick={(event) => getSport(sport)}>
-            {sport}
-          </ListGroup.Item>
-        </ListGroup>
+        <ul className="selectedSports">
+          <li key={sport} onClick={(event) => getSport(sport)}>
+            <span className="text">{sport}</span>
+          </li>
+        </ul>
       )
     );
   }
 
   return (
-    <Col className="sidebar-sports">
+    <Col lg={3} xl={3} md={3} className="sidebar">
+      <h1>All in one - Sports</h1>
       {displaySelectedSports}
       <Settings
         sports={selectedSports}

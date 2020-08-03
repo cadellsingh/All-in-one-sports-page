@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import SidebarSports from "./SidebarSports";
+import Sidebar from "./Sidebar";
 import SportsNews from "./SportsNews";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-
+import Col from "react-bootstrap/Col";
 
 // this should prob go back in sportsData component
 const newsUrls = [
@@ -20,29 +20,28 @@ const App = () => {
   const [sportToFetch, setSportToFetch] = useState("");
   const [sportsNews, setSportsNews] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      for (const newsUrl of newsUrls) {
-        const res = await fetch(newsUrl);
-        res.json().then((res) => {
-          setSportsNews((state) => [...state, res]);
-        });
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     for (const newsUrl of newsUrls) {
+  //       const res = await fetch(newsUrl);
+  //       res.json().then((res) => {
+  //         setSportsNews((state) => [...state, res]);
+  //       });
+  //     }
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const getSport = (sport) => {
     setSportToFetch(sport);
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
-        <SidebarSports getSport={getSport} />
+        <Sidebar getSport={getSport} />
         <SportsNews sport={sportToFetch} sports={sportsNews} />
-        {/* <SportsScores /> */}
       </Row>
     </Container>
   );
