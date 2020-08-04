@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import Navbar from "react-bootstrap/Navbar";
+
+// do i even need a settings feature ?
+
 
 const Settings = (props) => {
   const { sports, toggleSelectedSport } = props;
@@ -25,7 +29,7 @@ const Settings = (props) => {
 
   return (
     <div className="settings">
-      <h3 onClick={handleClick}>Settings</h3>
+      <Navbar.Brand onClick={handleClick}>Settings</Navbar.Brand>
       {displaySettings && checkedSports}
     </div>
   );

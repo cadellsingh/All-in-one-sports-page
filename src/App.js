@@ -38,13 +38,10 @@ const App = () => {
   };
 
   return (
-    <Container fluid className="main-container">
+    <div className="main-container">
       <Navbar getSport={getSport} />
-
-      <Row>
-        <SportsNews sport={sportToFetch} sports={sportsNews} />
-      </Row>
-    </Container>
+      <SportsNews sport={sportToFetch} sports={sportsNews} />
+    </div>
   );
 };
 

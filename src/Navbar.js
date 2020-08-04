@@ -36,30 +36,36 @@ const SidebarSports = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <Nav.Item as="li" key={sport} onClick={(event) => getSport(sport)}>
+        <Nav.Item
+          className="ml-auto"
+          as="li"
+          key={sport}
+          onClick={(event) => getSport(sport)}
+        >
           <Nav.Link>{sport}</Nav.Link>
         </Nav.Item>
       )
     );
   }
 
+  // see if you can work in NavBar
+  // try to have settings all the way to the right possibly
+
   return (
-    <Row className="navbar">
-      <Col>
-        <Nav>
-          <h1>All in one</h1>
-          <Settings
-            sports={selectedSports}
-            toggleSelectedSport={toggleSelectedSport}
-          />
-        </Nav>
-      </Col>
-      <Col>
-        <Nav className="justify-content-end" as="ul">
+    <Container fluid className="navbar">
+      <Navbar>
+        <Nav className="container-fluid">
+          <Nav.Item><Navbar.Brand>All in one</Navbar.Brand></Nav.Item>
+          <Nav.Item>
+            <Settings
+              sports={selectedSports}
+              toggleSelectedSport={toggleSelectedSport}
+            />
+          </Nav.Item>
           {displaySelectedSports}
         </Nav>
-      </Col>
-    </Row>
+      </Navbar>
+    </Container>
   );
 };
 
