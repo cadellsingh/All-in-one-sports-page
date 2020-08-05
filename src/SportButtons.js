@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Settings from "./Settings";
-import Col from "react-bootstrap/Col";
-import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
+import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const allSports = {
   NBA: true,
@@ -17,7 +15,7 @@ const allSports = {
 
 // move all sports back up to APP Component
 
-const SidebarSports = (props) => {
+const SportButtons = (props) => {
   const { getSport } = props;
   const [selectedSports, setSelectedSports] = useState(allSports);
 
@@ -36,37 +34,30 @@ const SidebarSports = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <Nav.Item
-          className="ml-auto"
-          as="li"
+        <ListGroup.Item
+          style={{ border: "none" }}
           key={sport}
           onClick={(event) => getSport(sport)}
         >
-          <Nav.Link>{sport}</Nav.Link>
-        </Nav.Item>
+          {sport}
+        </ListGroup.Item>
       )
     );
   }
 
-  // see if you can work in NavBar
-  // try to have settings all the way to the right possibly
-
   return (
-    <Container fluid className="navbar">
-      <Navbar>
-        <Nav className="container-fluid">
-          <Nav.Item><Navbar.Brand>All in one</Navbar.Brand></Nav.Item>
-          <Nav.Item>
-            <Settings
-              sports={selectedSports}
-              toggleSelectedSport={toggleSelectedSport}
-            />
-          </Nav.Item>
-          {displaySelectedSports}
-        </Nav>
-      </Navbar>
+    <Container className="sport-buttons">
+      <Row>
+        <Col>
+          <ListGroup horizontal>
+            {displaySelectedSports}
+          </ListGroup>
+        </Col>
+      </Row>
     </Container>
   );
 };
 
-export default SidebarSports;
+export default SportButtons;
+
+// search bar in navbar

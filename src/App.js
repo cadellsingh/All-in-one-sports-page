@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "./Navbar";
 import SportsNews from "./SportsNews";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import SportButtons from "./SportButtons";
+import TopNavbar from "./TopNavbar";
 
 // this should prob go back in sportsData component
 const newsUrls = [
@@ -20,18 +18,18 @@ const App = () => {
   const [sportToFetch, setSportToFetch] = useState("");
   const [sportsNews, setSportsNews] = useState([]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     for (const newsUrl of newsUrls) {
-  //       const res = await fetch(newsUrl);
-  //       res.json().then((res) => {
-  //         setSportsNews((state) => [...state, res]);
-  //       });
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      for (const newsUrl of newsUrls) {
+        const res = await fetch(newsUrl);
+        res.json().then((res) => {
+          setSportsNews((state) => [...state, res]);
+        });
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   const getSport = (sport) => {
     setSportToFetch(sport);
@@ -39,7 +37,8 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <Navbar getSport={getSport} />
+      <TopNavbar />
+      <SportButtons getSport={getSport} />
       <SportsNews sport={sportToFetch} sports={sportsNews} />
     </div>
   );
