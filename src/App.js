@@ -4,7 +4,6 @@ import SportsNews from "./SportsNews";
 import SportButtons from "./SportButtons";
 import TopNavbar from "./TopNavbar";
 
-// this should prob go back in sportsData component
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
   "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news",
