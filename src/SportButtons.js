@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const allSports = {
   NBA: true,
@@ -39,7 +39,7 @@ const SportButtons = (props) => {
           key={sport}
           onClick={(event) => getSport(sport)}
         >
-          {sport}
+          <Button variant="outline-primary">{sport}</Button>
         </ListGroup.Item>
       )
     );
@@ -47,12 +47,8 @@ const SportButtons = (props) => {
 
   return (
     <Container className="sport-buttons">
-      <Row>
-        <Col>
-          <ListGroup horizontal>
-            {displaySelectedSports}
-          </ListGroup>
-        </Col>
+      <Row className="justify-content-md-center">
+        <ListGroup horizontal>{displaySelectedSports}</ListGroup>
       </Row>
     </Container>
   );
