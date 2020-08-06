@@ -10,7 +10,7 @@ const allSports = {
   MLB: true,
   NHL: true,
   NCAAF: true,
-  NCAA: true,
+  NCAAM: true,
 };
 
 // move all sports back up to APP Component
@@ -46,7 +46,7 @@ const SportButtons = (props) => {
   }
 
   return (
-    <Container className="sport-buttons">
+    <Container fluid="md" className="sport-buttons">
       <Row className="justify-content-md-center">
         <ListGroup horizontal>{displaySelectedSports}</ListGroup>
       </Row>
