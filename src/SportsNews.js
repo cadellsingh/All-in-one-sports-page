@@ -22,35 +22,24 @@ const SportsNews = (props) => {
       } = links;
 
       return sportDetails.push(
-        <Card>
-          <Card.Header>{header}</Card.Header>
-          {imageUrl && <Card.Img variant="top" src={imageUrl} /> }
-          <Card.Body>
-            <Card.Title>{headline}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <Button variant="outline-primary">Read full article</Button>
-            {/* {article link} */}
-          </Card.Body>
-        </Card>
+        <a href={articleLink} target="_blank" rel="noopener noreferrer">
+          <Card>
+            {imageUrl && <Card.Img variant="top" src={imageUrl} /> }
+            <Card.Body>
+              <Card.Title>{headline}</Card.Title>
+              <Card.Text>{description}</Card.Text>
+            </Card.Body>
+          </Card>
+        </a>
       );
     });
   });
-
-  // display all sports data based on whats true in sports object
-  // console.log(sports);
-
-  // when sport === "" then display news for all sports
 
   return (
     <Container fluid="lg" className="sport-news">
       <CardColumns>{sportDetails}</CardColumns>
     </Container>
-
-    // may a border radius to card
-    // use tonight for some styling 
   );
 };
 
 export default SportsNews;
-
-// bug with images url
