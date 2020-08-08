@@ -34,12 +34,8 @@ const SportButtons = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <ListGroup.Item
-          style={{ border: "none" }}
-          key={sport}
-          onClick={(event) => getSport(sport)}
-        >
-          <Button variant="outline-primary">{sport}</Button>
+        <ListGroup.Item key={sport} onClick={(event) => getSport(sport)}>
+          {sport}
         </ListGroup.Item>
       )
     );
@@ -47,8 +43,10 @@ const SportButtons = (props) => {
 
   return (
     <Container fluid="md" className="sport-buttons">
-      <Row className="justify-content-md-center">
-        <ListGroup horizontal>{displaySelectedSports}</ListGroup>
+      <Row className="justify-content-center">
+        <ListGroup variant="flush" horizontal>
+          {displaySelectedSports}
+        </ListGroup>
       </Row>
     </Container>
   );
