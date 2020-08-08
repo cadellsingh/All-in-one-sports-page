@@ -1,38 +1,51 @@
 .main-container {
-  /* background-color: grey; */
-  height: 100vh;
+  /* background-image: linear-gradient(#E6DADA , #274046); */
+  /* background-color: #b3b3b3; */
 }
 
 /* SPORT BUTTONS COMPONENT STYLING */
 .sport-buttons {
-  /* background-color: green; */
-  margin-top: 70px;
-}
-
-.sport-buttons .btn {
-  padding: 15px 30px;
-  color: black;
-}
-
-.sport-buttons .btn-outline-primary {
-  border-color: grey;
+  margin: 50px 0px;
 }
 
 .sport-buttons .list-group-item {
-  font-size: 20px;
-  margin: 10px;
-  padding: 0
+  background-color: transparent;
+  border: none;
+}
+
+.sport-buttons .list-group-item {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.sport-buttons .list-group-item:hover {
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
 .sport-news {
-  /* background-color: yellow; */
   margin-top: 30px;
 }
 
-.sport-news .card-title {
+.sport-news .card {
+  border: none;
+}
+
+.sport-news .card:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+.sport-news a .card-title {
   font-weight: 600;
   font-size: 18px;
+  color: black;
+}
+
+.sport-news a .card-text {
+  color: black;
 }
 
 .sport-news .row {
