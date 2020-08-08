@@ -15,8 +15,8 @@ const SportsNews = (props) => {
 
     return articles.map((article, index) => {
       const { headline, description, images, links } = article;
-      const { url: imageUrl } = images[0];
-      // renamed variable while destructuring on nested object
+      const { url: imageUrl } = (images[0] !== undefined) && images[0]
+
       const {
         web: { href: articleLink },
       } = links;
@@ -24,7 +24,7 @@ const SportsNews = (props) => {
       return sportDetails.push(
         <Card>
           <Card.Header>{header}</Card.Header>
-          <Card.Img variant="top" src={imageUrl} />
+          {imageUrl && <Card.Img variant="top" src={imageUrl} /> }
           <Card.Body>
             <Card.Title>{headline}</Card.Title>
             <Card.Text>{description}</Card.Text>
@@ -45,7 +45,12 @@ const SportsNews = (props) => {
     <Container fluid="lg" className="sport-news">
       <CardColumns>{sportDetails}</CardColumns>
     </Container>
+
+    // may a border radius to card
+    // use tonight for some styling 
   );
 };
 
 export default SportsNews;
+
+// bug with images url
