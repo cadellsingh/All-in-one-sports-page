@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
 
 const SportsNews = (props) => {
   const { sport, sports } = props;
@@ -15,7 +16,7 @@ const SportsNews = (props) => {
 
     return articles.map((article, index) => {
       const { headline, description, images, links } = article;
-      const { url: imageUrl } = (images[0] !== undefined) && images[0]
+      const { url: imageUrl } = images[0] !== undefined && images[0];
 
       const {
         web: { href: articleLink },
@@ -24,7 +25,7 @@ const SportsNews = (props) => {
       return sportDetails.push(
         <a href={articleLink} target="_blank" rel="noopener noreferrer">
           <Card>
-            {imageUrl && <Card.Img variant="top" src={imageUrl} /> }
+            {imageUrl && <Card.Img variant="top" src={imageUrl} />}
             <Card.Body>
               <Card.Title>{headline}</Card.Title>
               <Card.Text>{description}</Card.Text>
@@ -36,8 +37,12 @@ const SportsNews = (props) => {
   });
 
   return (
-    <Container fluid="lg" className="sport-news">
-      <CardColumns>{sportDetails}</CardColumns>
+    <Container fluid className="sport-news-container">
+      <Row>
+        <div className="sport-news">
+          <CardColumns>{sportDetails}</CardColumns>
+        </div>
+      </Row>
     </Container>
   );
 };
