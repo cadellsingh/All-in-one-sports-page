@@ -1,14 +1,24 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
-import SportButtons from "./SportButtons";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 const TopNavbar = () => {
   return (
-    <Navbar variant="dark" bg="dark">
-      <Navbar.Brand>All in one</Navbar.Brand>
-      {/* <Navbar.Brand>News</Navbar.Brand> */}
-      {/* <Navbar.Brand>Scores</Navbar.Brand> */}
-    </Navbar>
+    <Container fluid className="navbar-container">
+      <Row>
+        <div className="content-container">
+          <Navbar variant="dark">
+            <Navbar.Brand>All in one</Navbar.Brand>
+            <Nav>
+              <Nav.Link>News</Nav.Link>
+              <Nav.Link>Scores</Nav.Link>
+            </Nav>
+          </Navbar>
+        </div>
+      </Row>
+    </Container>
   );
 };
 
