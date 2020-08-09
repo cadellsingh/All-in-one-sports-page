@@ -1,11 +1,24 @@
-.main-container {
-  /* background-image: linear-gradient(#E6DADA , #274046); */
-  /* background-color: #b3b3b3; */
+/* NAVBAR COMPONENT STYLING */
+.navbar-container {
+  background-color: #343B3F;
+}
+
+.content-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.content-container .navbar-brand {
+  font-size: 22px;
+}
+
+.content-container .nav-link {
+  font-size: 18px;
 }
 
 /* SPORT BUTTONS COMPONENT STYLING */
 .sport-buttons {
-  margin: 50px 0px;
+  margin-top: 30px;
 }
 
 .sport-buttons .list-group-item {
@@ -15,22 +28,28 @@
 
 .sport-buttons .list-group-item {
   font-size: 18px;
-  margin-left: 5px;
+  color: grey;
+  /* margin-left: 5px; */
 }
 
 .sport-buttons .list-group-item:hover {
-  color: white;
+  color: black;
   font-weight: 700;
   cursor: pointer;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
-.sport-news {
+.sport-news-container {
   margin-top: 30px;
 }
 
+.sport-news {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .sport-news .card {
-  border: none;
+  /* border: none; */
 }
 
 .sport-news .card:hover {
@@ -48,10 +67,9 @@
   color: black;
 }
 
-.sport-news .row {
-  display: flex;
-  flex-wrap: wrap
-}
+
+
+
 
 
 
