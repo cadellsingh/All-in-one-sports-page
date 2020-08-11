@@ -13,3 +13,5 @@ const SearchBar = () => {
 }
 
 export default SearchBar
+
+// search bar component can go in app component

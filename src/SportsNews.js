@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Col from "react-bootstrap/Col";
-import SearchBar from "./SearchBar";
+
+const newsUrls = [
+  "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
+  "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news",
+  "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news",
+  "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/news",
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/news",
+  "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news",
+];
 
 const SportsNews = (props) => {
-  const [searchValue, setSearchValue] = useState("")
-  const { sport, sports } = props;
+  // const [searchValue, setSearchValue] = useState("")
+  const [sportsNews, setSportsNews] = useState([]);
+  const { sport } = props;
+  console.log('sport: ', sport);
 
   // add unique value to key
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     for (const newsUrl of newsUrls) {
+  //       const res = await fetch(newsUrl);
+  //       res.json().then((res) => {
+  //         setSportsNews((state) => [...state, res]);
+  //       });
+  //     }
+  //   }
+
+  //   fetchData();
+  // }, []);
+
   const sportDetails = [];
-  sports.map((sport) => {
-    const { header, articles } = sport;
+  sportsNews.map((sport) => {
+    const { articles } = sport;
 
     return articles.map((article, index) => {
       const { headline, description, images, links } = article;
@@ -37,9 +60,8 @@ const SportsNews = (props) => {
   });
 
   return (
-    <Col className="sport-news-container">
-      <SearchBar />
-      <CardColumns>{sportDetails}</CardColumns>
+    <Col>
+      <CardColumns className="sport-news-container">{sportDetails}</CardColumns>
     </Col>
   );
 };
@@ -47,4 +69,4 @@ const SportsNews = (props) => {
 export default SportsNews;
 
 // when i incorporate scores, that may have to be in same componet as SportNews
-// rename to SportsData
+// maybe rename to SportsData

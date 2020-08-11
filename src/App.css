@@ -1,5 +1,5 @@
 .main-container {
-  background-color: #0D131A;
+  background-color: #192428;
 }
 
 /* SIDEBAR CONTAINER */
@@ -10,6 +10,7 @@
 .sidebar-container .list-group-item:first-child {
   background-color: transparent;
   color: white;
+  border: none;
 }
 
 /* SPORT BUTTONS COMPONENT STYLING */
@@ -39,11 +40,10 @@
 .sport-news-container {
   margin-top: 20px;
   padding-top: 30px;
-  background-color: #0D131A
 }
 
 .sport-news-container .card {
-  background-color: #192734;
+  background-color: #2d383c;
   border: 1px solid white;
   margin: 10px;
 }
@@ -54,8 +54,8 @@
 }
 
 .sport-news-container a .card-title {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 20px;
   color: white;
 }
 
