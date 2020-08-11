@@ -1,11 +1,11 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import SearchBar from "./SearchBar";
 
 const SportsNews = (props) => {
+  const [searchValue, setSearchValue] = useState("")
   const { sport, sports } = props;
 
   // add unique value to key
@@ -37,14 +37,14 @@ const SportsNews = (props) => {
   });
 
   return (
-    <Container fluid className="sport-news-container">
-      <Row>
-        <div className="sport-news">
-          <CardColumns>{sportDetails}</CardColumns>
-        </div>
-      </Row>
-    </Container>
+    <Col className="sport-news-container">
+      <SearchBar />
+      <CardColumns>{sportDetails}</CardColumns>
+    </Col>
   );
 };
 
 export default SportsNews;
+
+// when i incorporate scores, that may have to be in same componet as SportNews
+// rename to SportsData
