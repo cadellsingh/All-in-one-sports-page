@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import SportsNews from "./SportsNews";
-import SportButtons from "./SportButtons";
-import TopNavbar from "./TopNavbar";
+import Sidebar from "./Sidebar";
 
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
@@ -35,11 +36,12 @@ const App = () => {
   };
 
   return (
-    <div>
-      <TopNavbar />
-      <SportButtons getSport={getSport} />
-      <SportsNews sport={sportToFetch} sports={sportsNews} />
-    </div>
+    <Container fluid className="main-container">
+      <Row>
+        <Sidebar />
+        <SportsNews sport={sportToFetch} sports={sportsNews} />
+      </Row>
+    </Container>
   );
 };
 
