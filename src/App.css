@@ -1,19 +1,15 @@
-/* NAVBAR COMPONENT STYLING */
-.navbar-container {
-  background-color: #343B3F;
+.main-container {
+  background-color: #0D131A;
 }
 
-.content-container {
-  width: 80%;
-  margin: 0 auto;
+/* SIDEBAR CONTAINER */
+.sidebar-container {
+  margin-top: 45px;
 }
 
-.content-container .navbar-brand {
-  font-size: 22px;
-}
-
-.content-container .nav-link {
-  font-size: 18px;
+.sidebar-container .list-group-item:first-child {
+  background-color: transparent;
+  color: white;
 }
 
 /* SPORT BUTTONS COMPONENT STYLING */
@@ -24,47 +20,74 @@
 .sport-buttons .list-group-item {
   background-color: transparent;
   border: none;
-}
-
-.sport-buttons .list-group-item {
   font-size: 18px;
-  color: grey;
-  /* margin-left: 5px; */
+  color: white;
 }
 
 .sport-buttons .list-group-item:hover {
   color: black;
   font-weight: 700;
   cursor: pointer;
+  background-color: green;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
 .sport-news-container {
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
-.sport-news {
-  width: 80%;
-  margin: 0 auto;
+.sport-news-container {
+  margin-top: 20px;
+  padding-top: 30px;
+  background-color: #0D131A
 }
 
-.sport-news .card {
-  /* border: none; */
+.sport-news-container .card {
+  background-color: #192734;
+  border: 1px solid white;
+  margin: 10px;
 }
 
-.sport-news .card:hover {
+.sport-news-container .card:hover {
   background-color: green;
   cursor: pointer;
 }
 
-.sport-news a .card-title {
+.sport-news-container a .card-title {
   font-weight: 600;
   font-size: 18px;
-  color: black;
+  color: white;
 }
 
-.sport-news a .card-text {
-  color: black;
+.sport-news-container .card-text {
+  color: white;
+}
+
+/* SEARCH BAR COMPONENT STYLING */
+.search-bar {
+  /* background-color: green; */
+}
+
+.search-bar .form-control {
+  background-color: #2D3B48;
+  border: none;
+}
+
+.search-bar .form-control:focus {
+  background-color: yellow;
+  border: none;
+}
+
+.search-bar .form-inline {
+  width: 100%;
+}
+
+.search-bar .form-group {
+  width: 90%;
+}
+
+.search-bar .form-control {
+  width: 50% !important;
 }
 
 
