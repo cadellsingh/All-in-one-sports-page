@@ -27,3 +27,5 @@ export default App;
 // may have to add onclick handlers for news & scores components
 
 // sidebar component -> contains Sport buttons
+
+// create main component to store other components
