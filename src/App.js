@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import SportsNews from "./SportsNews";
 import Sidebar from "./Sidebar";
+import MainData from "./MainData";
 
 const App = () => {
   const [sportToFetch, setSportToFetch] = useState("");
@@ -16,7 +16,7 @@ const App = () => {
     <Container fluid className="main-container">
       <Row>
         <Sidebar getSport={getSport}/>
-        <SportsNews sport={sportToFetch} />
+        <MainData sport={sportToFetch} />
       </Row>
     </Container>
   );
@@ -25,7 +25,3 @@ const App = () => {
 export default App;
 
 // may have to add onclick handlers for news & scores components
-
-// sidebar component -> contains Sport buttons
-
-// create main component to store other components
