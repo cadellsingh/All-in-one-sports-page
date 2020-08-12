@@ -1,17 +1,18 @@
-import React from "react"
-import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
+import React from "react";
+import Form from "react-bootstrap/Form";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const { handleOnChange, searchValue } = props;
+
   return (
-    <Navbar className="search-bar">
-      <Form inline>
-        <Form.Control placeholder="Search...."></Form.Control>
-      </Form>
-    </Navbar>
-  )
-}
+    <Form className="search-bar" inline>
+      <Form.Control
+        placeholder="Search...."
+        value={searchValue}
+        onChange={handleOnChange}
+      ></Form.Control>
+    </Form>
+  );
+};
 
-export default SearchBar
-
-// search bar component can go in app component
+export default SearchBar;

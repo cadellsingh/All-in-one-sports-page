@@ -13,31 +13,35 @@ const newsUrls = [
 ];
 
 const SportsNews = (props) => {
-  // const [searchValue, setSearchValue] = useState("")
   const [sportsNews, setSportsNews] = useState([]);
-  const { sport } = props;
-  console.log('sport: ', sport);
+  const { sport, searchValue } = props;
 
   // add unique value to key
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     for (const newsUrl of newsUrls) {
-  //       const res = await fetch(newsUrl);
-  //       res.json().then((res) => {
-  //         setSportsNews((state) => [...state, res]);
-  //       });
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      for (const newsUrl of newsUrls) {
+        const res = await fetch(newsUrl);
+        res.json().then((res) => {
+          setSportsNews((state) => [...state, res]);
+        });
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   const sportDetails = [];
-  sportsNews.map((sport) => {
-    const { articles } = sport;
 
-    return articles.map((article, index) => {
+  sportsNews.map((sport) => {
+    let { articles } = sport;
+
+    // filtering articles based on search query
+    let filteredSports = articles.filter((article) => {
+      return article.headline.toLowerCase().includes(searchValue);
+    });
+
+    filteredSports.map((article) => {
       const { headline, description, images, links } = article;
       const { url: imageUrl } = images[0] !== undefined && images[0];
 
@@ -45,7 +49,7 @@ const SportsNews = (props) => {
         web: { href: articleLink },
       } = links;
 
-      return sportDetails.push(
+      sportDetails.push(
         <a href={articleLink} target="_blank" rel="noopener noreferrer">
           <Card>
             {imageUrl && <Card.Img variant="top" src={imageUrl} />}
@@ -60,9 +64,7 @@ const SportsNews = (props) => {
   });
 
   return (
-    <Col>
       <CardColumns className="sport-news-container">{sportDetails}</CardColumns>
-    </Col>
   );
 };
 
