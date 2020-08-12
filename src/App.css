@@ -34,12 +34,7 @@
 
 /* SPORT NEWS COMPONENT STYLING */
 .sport-news-container {
-  margin-top: 45px;
-}
-
-.sport-news-container {
-  margin-top: 20px;
-  padding-top: 30px;
+  margin-top: 25px;
 }
 
 .sport-news-container .card {
@@ -65,12 +60,13 @@
 
 /* SEARCH BAR COMPONENT STYLING */
 .search-bar {
-  /* background-color: green; */
+  margin-top: 60px;
 }
 
 .search-bar .form-control {
   background-color: #2D3B48;
   border: none;
+  margin-left: 5px;
 }
 
 .search-bar .form-control:focus {
