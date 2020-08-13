@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import ListGroup from "react-bootstrap/ListGroup";
+import MainData from "./MainData";
 
 const allSports = {
   NBA: true,
@@ -12,7 +14,13 @@ const allSports = {
 };
 
 const Sidebar = (props) => {
-  const { getSport } = props;
+  const [clickedOn, setClickedOn] = useState("");
+  const [sportToFetch, setSportToFetch] = useState("");
+
+  const getSport = (sport) => {
+    setSportToFetch(sport);
+    setClickedOn(sport)
+  };
 
   // displays selected sports
   const entries = Object.entries(allSports);
@@ -20,7 +28,11 @@ const Sidebar = (props) => {
   for (const [sport, isSelected] of entries) {
     displaySelectedSports.push(
       isSelected && (
-        <ListGroup.Item key={sport} onClick={(event) => getSport(sport)}>
+        <ListGroup.Item
+          className={clickedOn === sport ? "clicked-on" : null}
+          key={sport}
+          onClick={(event) => getSport(sport)}
+        >
           {sport}
         </ListGroup.Item>
       )
@@ -28,14 +40,17 @@ const Sidebar = (props) => {
   }
 
   return (
-    <Col lg={2} className="sidebar-container">
-      <ListGroup>
-        <ListGroup.Item>
-          <h2>All in one</h2>
-        </ListGroup.Item>
-        <div className="sport-buttons">{displaySelectedSports}</div>
-      </ListGroup>
-    </Col>
+    <Row>
+      <Col lg={2} className="sidebar-container">
+        <ListGroup>
+          <ListGroup.Item className="main-heading">
+            <h2>All in one</h2>
+          </ListGroup.Item>
+          <div className="sport-buttons">{displaySelectedSports}</div>
+        </ListGroup>
+      </Col>
+      <MainData sport={sportToFetch} />
+    </Row>
   );
 };
 

@@ -20,6 +20,3 @@ const MainData = (props) => {
 };
 
 export default MainData;
-
-// Search
-// SportNews
