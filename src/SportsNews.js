@@ -15,42 +15,52 @@ const newsUrls = [
 const SportsNews = (props) => {
   const [sportsNews, setSportsNews] = useState([]);
   const { sport, searchValue } = props;
-  console.log('sport: ', sport);
 
   // add unique value to key
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     for (const newsUrl of newsUrls) {
-  //       const res = await fetch(newsUrl);
-  //       res.json().then((res) => {
-  //         setSportsNews((state) => [...state, res]);
-  //       });
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      for (const newsUrl of newsUrls) {
+        const res = await fetch(newsUrl);
+        res.json().then((res) => {
+          setSportsNews((state) => [...state, res]);
+        });
+      }
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
+
+  // filters articles based on sport selected
+  // if no sport is selected, all sport articles are shown
+  let filteredSports =
+    sport !== "ALL"
+      ? sportsNews.filter((sports) => {
+          return sports.header.includes(sport);
+        })
+      : sportsNews;
 
   const sportDetails = [];
 
-  sportsNews.map((sport) => {
+  filteredSports.map((sport) => {
     let { articles } = sport;
 
-    // filtering articles based on search query
-    let filteredSports = articles.filter((article) => {
+    // filters articles based on search query
+    let filterArticles = articles.filter((article) => {
       return article.headline.toLowerCase().includes(searchValue);
     });
 
-    filteredSports.map((article) => {
+    return filterArticles.map((article) => {
       const { headline, description, images, links } = article;
+      
+      // doesnt use an image if image[0] is undefined
       const { url: imageUrl } = images[0] !== undefined && images[0];
 
       const {
         web: { href: articleLink },
       } = links;
 
-      sportDetails.push(
+      return sportDetails.push(
         <a href={articleLink} target="_blank" rel="noopener noreferrer">
           <Card>
             {imageUrl && <Card.Img variant="top" src={imageUrl} />}
@@ -65,7 +75,7 @@ const SportsNews = (props) => {
   });
 
   return (
-      <CardColumns className="sport-news-container">{sportDetails}</CardColumns>
+    <CardColumns className="sport-news-container">{sportDetails}</CardColumns>
   );
 };
 
