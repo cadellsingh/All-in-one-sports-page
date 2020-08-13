@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
-import Col from "react-bootstrap/Col";
 
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",

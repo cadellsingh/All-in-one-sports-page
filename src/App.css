@@ -79,7 +79,6 @@ body {
 }
 
 .search-bar .form-control:focus {
-  /* background-color: yellow; */
   border: none;
   background-color: #0D131A;
   outline: none;
