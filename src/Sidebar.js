@@ -5,6 +5,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import MainData from "./MainData";
 
 const allSports = {
+  ALL: true,
   NBA: true,
   NFL: true,
   MLB: true,
@@ -14,19 +15,18 @@ const allSports = {
 };
 
 const Sidebar = (props) => {
-  const [clickedOn, setClickedOn] = useState("");
-  const [sportToFetch, setSportToFetch] = useState("");
+  const [clickedOn, setClickedOn] = useState("ALL");
+  const [sportToFetch, setSportToFetch] = useState("ALL");
 
   const getSport = (sport) => {
     setSportToFetch(sport);
     setClickedOn(sport)
   };
 
-  // displays selected sports
   const entries = Object.entries(allSports);
-  const displaySelectedSports = [];
+  const displaysSidebarSports = [];
   for (const [sport, isSelected] of entries) {
-    displaySelectedSports.push(
+    displaysSidebarSports.push(
       isSelected && (
         <ListGroup.Item
           className={clickedOn === sport ? "clicked-on" : null}
@@ -46,7 +46,7 @@ const Sidebar = (props) => {
           <ListGroup.Item className="main-heading">
             <h2>All in one</h2>
           </ListGroup.Item>
-          <div className="sport-buttons">{displaySelectedSports}</div>
+          <div className="sport-buttons">{displaysSidebarSports}</div>
         </ListGroup>
       </Col>
       <MainData sport={sportToFetch} />
