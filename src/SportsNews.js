@@ -33,11 +33,11 @@ const SportsNews = (props) => {
   // filters articles based on sport selected
   // if no sport is selected, all sport articles are shown
   let filteredSports =
-    sport !== "ALL"
-      ? sportsNews.filter((sports) => {
+    sport === "ALL"
+      ? sportsNews
+      : sportsNews.filter((sports) => {
           return sports.header.includes(sport);
-        })
-      : sportsNews;
+        });
 
   const sportDetails = [];
 
@@ -51,7 +51,7 @@ const SportsNews = (props) => {
 
     return filterArticles.map((article) => {
       const { headline, description, images, links } = article;
-      
+
       // doesnt use an image if image[0] is undefined
       const { url: imageUrl } = images[0] !== undefined && images[0];
 
