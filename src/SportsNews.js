@@ -15,21 +15,22 @@ const newsUrls = [
 const SportsNews = (props) => {
   const [sportsNews, setSportsNews] = useState([]);
   const { sport, searchValue } = props;
+  console.log('sport: ', sport);
 
   // add unique value to key
 
-  useEffect(() => {
-    async function fetchData() {
-      for (const newsUrl of newsUrls) {
-        const res = await fetch(newsUrl);
-        res.json().then((res) => {
-          setSportsNews((state) => [...state, res]);
-        });
-      }
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     for (const newsUrl of newsUrls) {
+  //       const res = await fetch(newsUrl);
+  //       res.json().then((res) => {
+  //         setSportsNews((state) => [...state, res]);
+  //       });
+  //     }
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const sportDetails = [];
 
