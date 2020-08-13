@@ -1,5 +1,10 @@
+html,
+body {
+  background-color: #0a192f;
+}
+
 .main-container {
-  background-color: #192428;
+  background-color: #0a192f;
 }
 
 /* SIDEBAR CONTAINER */
@@ -7,7 +12,7 @@
   margin-top: 45px;
 }
 
-.sidebar-container .list-group-item:first-child {
+.sidebar-container .main-heading {
   background-color: transparent;
   color: white;
   border: none;
@@ -25,11 +30,14 @@
   color: white;
 }
 
+
 .sport-buttons .list-group-item:hover {
-  color: black;
-  font-weight: 700;
   cursor: pointer;
-  background-color: green;
+  background-color: #2d3b48;
+}
+
+.sport-buttons .clicked-on {
+  background-color: #0D131A;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
@@ -38,13 +46,13 @@
 }
 
 .sport-news-container .card {
-  background-color: #2d383c;
+  background-color: #172a45;
   border: 1px solid white;
   margin: 10px;
 }
 
 .sport-news-container .card:hover {
-  background-color: green;
+  background-color: #2d3b48;
   cursor: pointer;
 }
 
@@ -64,15 +72,20 @@
 }
 
 .search-bar .form-control {
-  background-color: #2D3B48;
+  background-color: #2d3b48;
   border: none;
   margin-left: 5px;
+  width: 50% !important;
 }
 
 .search-bar .form-control:focus {
-  background-color: yellow;
+  /* background-color: yellow; */
   border: none;
+  background-color: #0D131A;
+  outline: none;
+  color: white;
 }
+
 
 .search-bar .form-inline {
   width: 100%;
@@ -81,14 +94,5 @@
 .search-bar .form-group {
   width: 90%;
 }
-
-.search-bar .form-control {
-  width: 50% !important;
-}
-
-
-
-
-
 
 
