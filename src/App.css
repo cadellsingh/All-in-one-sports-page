@@ -30,7 +30,6 @@ body {
   color: white;
 }
 
-
 .sport-buttons .list-group-item:hover {
   cursor: pointer;
   background-color: #2d3b48;
@@ -51,9 +50,66 @@ body {
   margin: 10px;
 }
 
+@-webkit-keyframes swing {
+  15% {
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+  }
+  30% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+  }
+  50% {
+      -webkit-transform: translateY(3px);
+      transform: translateY(3px);
+  }
+  65% {
+      -webkit-transform: translateY(-3px);
+      transform: translateY(-3px);
+  }
+  80% {
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
+  }
+  100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+  }
+}
+@keyframes swing {
+  15% {
+      -webkit-transform: translateY(5px);
+      transform: translateY(5px);
+  }
+  30% {
+      -webkit-transform: translateY(-5px);
+      transform: translateY(-5px);
+  }
+  50% {
+      -webkit-transform: translateY(3px);
+      transform: translateY(3px);
+  }
+  65% {
+      -webkit-transform: translateY(-3px);
+      transform: translateY(-3px);
+  }
+  80% {
+      -webkit-transform: translateY(2px);
+      transform: translateY(2px);
+  }
+  100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+  }
+}
+
 .sport-news-container .card:hover {
   background-color: #2d3b48;
   cursor: pointer;
+  -webkit-animation: swing 1s ease;
+  animation: swing 1s ease;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
 
 .sport-news-container a .card-title {
@@ -75,7 +131,7 @@ body {
   background-color: #2d3b48;
   border: none;
   margin-left: 5px;
-  width: 50% !important;
+  width: 100% !important;
 }
 
 .search-bar .form-control:focus {
@@ -85,13 +141,36 @@ body {
   color: white;
 }
 
-
-.search-bar .form-inline {
-  width: 100%;
+@media only screen and (max-width: 1186px) {
+  .sidebar-container h2 {
+    font-size: 25px;
+  }
 }
 
-.search-bar .form-group {
-  width: 90%;
+@media only screen and (max-width: 990px) {
+   .sport-buttons .list-group-item {
+     display: inline;
+   }
+
+   .sidebar-container .main-heading {
+    font-size: 15px;
+  }
+
+   .sport-buttons {
+     /* background-color: green; */
+     margin: 0 auto;
+   }
+
+   .sidebar-container .main-heading {
+     margin-bottom: 20px;
+     /* background-color: green; */
+   }
+}
+
+@media only screen and (max-width: 770px) {
+  .sport-buttons .list-group-item {
+    font-size: 16px;
+  }
 }
 
 
