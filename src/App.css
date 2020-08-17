@@ -22,11 +22,12 @@ body {
 }
 
 .navBar-container #button-link:hover {
-  color: #0d131a;
+  color: grey;
 }
 
-.navBar-container #clicked-on {
-  color: #0d131a;
+.navBar-container .clicked-on {
+  background: #0d131a;
+  border-radius: 10px;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
@@ -123,6 +124,39 @@ body {
   background-color: #0d131a;
   outline: none;
   color: white;
+}
+
+/* SPINNER STYLING */
+#spinner {
+  width: 4em;
+  height: 4em;
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 990px) {
+  #columns {
+    column-count: 2;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #columns {
+    column-count: 1;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .sport-news-container a .card-title {
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .sport-news-container .card-text {
+    font-size: 15px;
+  }
 }
 
 
