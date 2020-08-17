@@ -35,15 +35,15 @@ const NavigationBar = () => {
   for (const [sport, isSelected] of entries) {
     displaysSidebarSports.push(
       isSelected && (
-        <Nav.Item key={sport}>
-          <Nav.Link
-            id="button-link"
-            className={clickedOn === sport ? "clicked-on" : null}
-            onClick={(event) => getSport(sport)}
-          >
-            {sport}
-          </Nav.Link>
-        </Nav.Item>
+        <Nav.Link
+          href="#"
+          id="button-link"
+          className={clickedOn === sport ? "clicked-on" : null}
+          onClick={(event) => getSport(sport)}
+          key={sport}
+        >
+          {sport}
+        </Nav.Link>
       )
     );
   }
@@ -52,19 +52,19 @@ const NavigationBar = () => {
     <div>
       <Row className="justify-content-center navBar-container">
         <Col lg={10}>
-          <Navbar expand="lg">
+          <Navbar collapseOnSelect expand="lg">
             <Navbar.Brand variant="dark" id="main-heading">
               All in one
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nar">
-              <Nav className="mr-auto">
-                {displaysSidebarSports}
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="mr-auto">{displaysSidebarSports}</Nav>
+              <Nav>
+                <SearchBar
+                  handleOnChange={handleOnChange}
+                  searchValue={searchValue}
+                />
               </Nav>
-              <SearchBar
-                handleOnChange={handleOnChange}
-                searchValue={searchValue}
-              />
             </Navbar.Collapse>
           </Navbar>
         </Col>
