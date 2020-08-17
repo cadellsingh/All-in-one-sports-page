@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
@@ -15,22 +16,25 @@ const newsUrls = [
 
 const SportsNews = (props) => {
   const [sportsNews, setSportsNews] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { sport, searchValue } = props;
 
   // add unique value to key
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     for (const newsUrl of newsUrls) {
-  //       const res = await fetch(newsUrl);
-  //       res.json().then((res) => {
-  //         setSportsNews((state) => [...state, res]);
-  //       });
-  //     }
-  //   }
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoaded(true)
+      for (const newsUrl of newsUrls) {
+        const res = await fetch(newsUrl);
+        res.json().then((res) => {
+          setSportsNews((state) => [...state, res]);
+        });
+      }
+      setIsLoaded(false)
+    }
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   // filters articles based on sport selected
   // if no sport is selected, all sport articles are shown
@@ -75,12 +79,20 @@ const SportsNews = (props) => {
     });
   });
 
+  const cardDetails = (
+    <CardColumns className="sport-news-container" id="columns">
+      {sportDetails}
+    </CardColumns>
+  );
+
+  const loadingSpinner = (
+    <Spinner id="spinner" animation="grow" variant="secondary" />
+  );
+
   return (
     <Row className="justify-content-center">
       <Col lg={10}>
-        <CardColumns className="sport-news-container">
-          {sportDetails}
-        </CardColumns>
+        {isLoaded ? loadingSpinner : cardDetails}
       </Col>
     </Row>
   );
