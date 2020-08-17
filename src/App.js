@@ -1,18 +1,16 @@
 import React from "react";
 import "./App.css";
 import Container from "react-bootstrap/Container";
-import Sidebar from "./Sidebar";
+import NavigationBar from "./NavigationBar";
 
 const App = () => {
   return (
     <div className="main-container">
       <Container fluid>
-        <Sidebar />
+        <NavigationBar />
       </Container>
     </div>
   );
 };
 
 export default App;
-
-// may have to add onclick handlers for news & scores components
