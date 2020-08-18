@@ -4,6 +4,7 @@ import CardColumns from "react-bootstrap/CardColumns";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Spinner from "react-bootstrap/Spinner";
+import { v4 as uuidv4 } from "uuid";
 
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
@@ -23,14 +24,14 @@ const SportsNews = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      setIsLoaded(true)
+      setIsLoaded(true);
       for (const newsUrl of newsUrls) {
         const res = await fetch(newsUrl);
         res.json().then((res) => {
           setSportsNews((state) => [...state, res]);
         });
       }
-      setIsLoaded(false)
+      setIsLoaded(false);
     }
 
     fetchData();
@@ -66,7 +67,12 @@ const SportsNews = (props) => {
       } = links;
 
       return sportDetails.push(
-        <a href={articleLink} target="_blank" rel="noopener noreferrer">
+        <a
+          key={uuidv4()}
+          href={articleLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Card>
             {imageUrl && <Card.Img variant="top" src={imageUrl} />}
             <Card.Body>
@@ -91,9 +97,7 @@ const SportsNews = (props) => {
 
   return (
     <Row className="justify-content-center">
-      <Col lg={10}>
-        {isLoaded ? loadingSpinner : cardDetails}
-      </Col>
+      <Col lg={10}>{isLoaded ? loadingSpinner : cardDetails}</Col>
     </Row>
   );
 };
