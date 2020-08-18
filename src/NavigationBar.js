@@ -37,8 +37,7 @@ const NavigationBar = () => {
       isSelected && (
         <Nav.Link
           href="#"
-          id="button-link"
-          className={clickedOn === sport ? "clicked-on" : null}
+          id={clickedOn === sport ? "clicked-on" : "button-link"}
           onClick={(event) => getSport(sport)}
           key={sport}
         >
