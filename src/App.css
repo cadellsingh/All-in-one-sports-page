@@ -25,9 +25,9 @@ body {
   color: grey;
 }
 
-.navBar-container .clicked-on {
-  background: #0d131a;
-  border-radius: 10px;
+.navBar-container #clicked-on {
+  font-weight: 900;
+  color: black;
 }
 
 /* SPORT NEWS COMPONENT STYLING */
@@ -158,6 +158,3 @@ body {
     font-size: 15px;
   }
 }
-
-
-
