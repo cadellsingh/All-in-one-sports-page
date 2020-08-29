@@ -20,8 +20,6 @@ const SportsNews = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { sport, searchValue } = props;
 
-  // add unique value to key
-
   useEffect(() => {
     async function fetchData() {
       setIsLoaded(true);
@@ -103,6 +101,3 @@ const SportsNews = (props) => {
 };
 
 export default SportsNews;
-
-// when i incorporate scores, that may have to be in same componet as SportNews
-// maybe rename to SportsData
