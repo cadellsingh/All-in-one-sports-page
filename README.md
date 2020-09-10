@@ -1,3 +1,3 @@
 - Find all your favorite sports in one locations.
 - Made with React | React-Bootstrap | Styled Components
-- [All in One](https://www.frontendmentor.io/)
+- [All in One](https://all-in-one-sports.netlify.app)
