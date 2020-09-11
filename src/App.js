@@ -1,15 +1,17 @@
 import React from "react";
-import "./App.css";
 import Container from "react-bootstrap/Container";
 import NavigationBar from "./NavigationBar";
+import styled from "styled-components";
+
+const MainContainer = styled(Container)`
+  background-color: #0a192f;
+`;
 
 const App = () => {
   return (
-    <div className="main-container">
-      <Container fluid>
-        <NavigationBar />
-      </Container>
-    </div>
+    <MainContainer fluid>
+      <NavigationBar />
+    </MainContainer>
   );
 };
 

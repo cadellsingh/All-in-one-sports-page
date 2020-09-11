@@ -4,17 +4,17 @@ import SportsNews from "./SportsNews";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
+import styled from "styled-components";
+import DisplaySportLinks from "./DisplaySportLinks";
 
-const allSports = {
-  ALL: true,
-  NBA: true,
-  NFL: true,
-  MLB: true,
-  NHL: true,
-  NCAAF: true,
-  NCAAM: true,
-};
+const NavBarContainer = styled(Row)`
+  background-color: #2d3b48;
+
+  & .navbar-brand {
+    color: white;
+    font-size: 25px;
+  }
+`;
 
 const NavigationBar = () => {
   const [clickedOn, setClickedOn] = useState("ALL");
@@ -30,44 +30,23 @@ const NavigationBar = () => {
     setSearchValue(event.target.value);
   };
 
-  const entries = Object.entries(allSports);
-  const displaysSidebarSports = [];
-  for (const [sport, isSelected] of entries) {
-    displaysSidebarSports.push(
-      isSelected && (
-        <Nav.Link
-          href="#"
-          id={clickedOn === sport ? "clicked-on" : "button-link"}
-          onClick={(event) => getSport(sport)}
-          key={sport}
-        >
-          {sport}
-        </Nav.Link>
-      )
-    );
-  }
-
   return (
     <div>
-      <Row className="justify-content-center navBar-container">
+      <NavBarContainer className="justify-content-center">
         <Col lg={10}>
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand variant="dark" id="main-heading">
-              All in one
-            </Navbar.Brand>
+            <Navbar.Brand variant="dark">All in one</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mr-auto">{displaysSidebarSports}</Nav>
-              <Nav>
-                <SearchBar
-                  handleOnChange={handleOnChange}
-                  searchValue={searchValue}
-                />
-              </Nav>
+              <DisplaySportLinks clickedOn={clickedOn} getSport={getSport} />
+              <SearchBar
+                handleOnChange={handleOnChange}
+                searchValue={searchValue}
+              />
             </Navbar.Collapse>
           </Navbar>
         </Col>
-      </Row>
+      </NavBarContainer>
       <SportsNews sport={sportToFetch} searchValue={searchValue} />
     </div>
   );

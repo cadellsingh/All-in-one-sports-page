@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import CardColumns from "react-bootstrap/CardColumns";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Spinner from "react-bootstrap/Spinner";
+import CardDetails from "./CardDetails";
+import CardColumn from "./CardColumn";
 import { v4 as uuidv4 } from "uuid";
+import LoadingSpinner from "./LoadingSpinner";
 
 const newsUrls = [
   "https://site.api.espn.com/apis/site/v2/sports/football/college-football/news",
@@ -65,37 +65,26 @@ const SportsNews = (props) => {
       } = links;
 
       return sportDetails.push(
-        <a
+        <CardDetails
           key={uuidv4()}
-          href={articleLink}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Card>
-            {imageUrl && <Card.Img variant="top" src={imageUrl} />}
-            <Card.Body>
-              <Card.Title>{headline}</Card.Title>
-              <Card.Text>{description}</Card.Text>
-            </Card.Body>
-          </Card>
-        </a>
+          articleLink={articleLink}
+          imageUrl={imageUrl}
+          headline={headline}
+          description={description}
+        />
       );
     });
   });
 
-  const cardDetails = (
-    <CardColumns className="sport-news-container" id="columns">
-      {sportDetails}
-    </CardColumns>
-  );
-
-  const loadingSpinner = (
-    <Spinner id="spinner" animation="grow" variant="secondary" />
-  );
-
   return (
     <Row className="justify-content-center">
-      <Col lg={10}>{isLoaded ? loadingSpinner : cardDetails}</Col>
+      <Col lg={10}>
+        {isLoaded ? (
+          <LoadingSpinner />
+        ) : (
+          <CardColumn sportDetails={sportDetails} />
+        )}
+      </Col>
     </Row>
   );
 };
