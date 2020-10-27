@@ -1,3 +1,3 @@
-- Find all your favorite sports in one locations.
+- Find all your favorite sports in one location.
 - Made with React | React-Bootstrap
 - [All in One](https://all-in-one-sports.netlify.app)
