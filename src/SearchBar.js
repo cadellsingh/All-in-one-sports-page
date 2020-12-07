@@ -27,7 +27,7 @@ const SearchBar = (props) => {
           placeholder="Search...."
           value={searchValue}
           onChange={handleOnChange}
-        ></Form.Control>
+        />
       </Search>
     </Nav>
   );

@@ -62,7 +62,7 @@ const CardDetails = (props) => {
   return (
     <a href={articleLink} target="_blank" rel="noopener noreferrer">
       <CardContainer>
-        {imageUrl && <Card.Img variant="top" src={imageUrl} />}
+        {imageUrl && <Card.Img variant="top" src={imageUrl} alt={headline} />}
         <Card.Body>
           <Card.Title>{headline}</Card.Title>
           <Card.Text>{description}</Card.Text>

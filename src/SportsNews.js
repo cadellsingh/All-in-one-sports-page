@@ -57,7 +57,7 @@ const SportsNews = (props) => {
     return filterArticles.map((article) => {
       const { headline, description, images, links } = article;
 
-      // doesnt use an image if image[0] is undefined
+      // doesn't use an image if image[0] is undefined
       const { url: imageUrl } = images[0] !== undefined && images[0];
 
       const {
