@@ -15,3 +15,30 @@ You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app
 - React-Bootstrap
 - Styled Components
 - HTML/CSS
+- API
+
+## Installation
+1. Clone the repo
+   
+   ```
+   git clone https://github.com/cadellsingh/All-in-one-sports-page.git
+   ```
+
+2. Change working directory
+   
+   ```
+   cd All-in-one-sports-page/
+   ```
+
+3. Install any dependencies
+
+   ```
+   yarn install
+   ```
+   
+4. Run application
+   
+   ```
+   yarn start
+   ```
+
