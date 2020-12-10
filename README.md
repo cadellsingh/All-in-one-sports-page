@@ -16,16 +16,18 @@ You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app
 - Styled Components
 - HTML/CSS
 - API
+- And of course... ☕️
 
 ## Installation
+
 1. Clone the repo
-   
+
    ```
    git clone https://github.com/cadellsingh/All-in-one-sports-page.git
    ```
 
 2. Change working directory
-   
+
    ```
    cd All-in-one-sports-page/
    ```
@@ -35,10 +37,9 @@ You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app
    ```
    yarn install
    ```
-   
+
 4. Run application
-   
+
    ```
    yarn start
    ```
-
