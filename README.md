@@ -8,7 +8,7 @@ Web app that displays popular articles of all major sports
 
 You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app)
 
-## Tech Stack
+## Made With
 
 - JavaScript ES6
 - React
