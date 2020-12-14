@@ -1,6 +1,6 @@
 # All In One Sports
 
-![Github Logo](public/Screenshot 2020-12-13 at 9.44.10 PM.png)
+![](public/Screenshot%202020-12-13%20at%209.44.10%20PM.png)
 
 ## General Info
 
@@ -44,4 +44,8 @@ You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app
 
    ```
    yarn start
+<<<<<<< HEAD
    ```
+=======
+   ```
+>>>>>>> 4a7d312827a0edf802c2539b0a5089ef24937e70
