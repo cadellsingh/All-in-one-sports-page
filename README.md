@@ -1,5 +1,6 @@
 # All In One Sports
 
+![](public/Screenshot%202020-12-13%20at%209.44.10%20PM.png)
 
 ## General Info
 
