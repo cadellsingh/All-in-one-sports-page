@@ -44,8 +44,4 @@ You can view it here - [All-in-one-sports](https://all-in-one-sports.netlify.app
 
    ```
    yarn start
-<<<<<<< HEAD
-   ```
-=======
-   ```
->>>>>>> 4a7d312827a0edf802c2539b0a5089ef24937e70
+
