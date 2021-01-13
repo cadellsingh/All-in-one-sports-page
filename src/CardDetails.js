@@ -44,6 +44,11 @@ const CardContainer = styled(Card)`
     animation-iteration-count: 1;
   }
 
+  .img {
+    max-width: 100%;
+    height: auto;
+  }
+
   @media only screen and (max-width: 450px) {
     & .card-title {
       font-size: 16px;
@@ -62,7 +67,14 @@ const CardDetails = (props) => {
   return (
     <a href={articleLink} target="_blank" rel="noopener noreferrer">
       <CardContainer>
-        {imageUrl && <Card.Img variant="top" src={imageUrl} alt={headline} />}
+        {imageUrl && (
+          <Card.Img
+            variant="top"
+            className="img"
+            src={imageUrl}
+            alt={headline}
+          />
+        )}
         <Card.Body>
           <Card.Title>{headline}</Card.Title>
           <Card.Text>{description}</Card.Text>

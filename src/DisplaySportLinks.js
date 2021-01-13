@@ -35,7 +35,12 @@ const DisplaySportLinks = (props) => {
     );
   }
 
-  return <Nav className="mr-auto">{displaySports}</Nav>;
+  // return <Nav className="mr-auto">{displaySports}</Nav>;
+  return (
+    <div>
+      <Nav className="mr-auto">{displaySports}</Nav>
+    </div>
+  );
 };
 
 export default DisplaySportLinks;
