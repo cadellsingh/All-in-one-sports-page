@@ -18,7 +18,7 @@ const newsUrls = [
 const SportsNews = (props) => {
   const [sportsNews, setSportsNews] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const { sport, searchValue } = props;
+  const { sport } = props;
 
   useEffect(() => {
     async function fetchData() {
@@ -49,12 +49,7 @@ const SportsNews = (props) => {
   filteredSports.map((sport) => {
     let { articles } = sport;
 
-    // filters articles based on search query
-    let filterArticles = articles.filter((article) => {
-      return article.headline.toLowerCase().includes(searchValue);
-    });
-
-    return filterArticles.map((article) => {
+    return articles.map((article) => {
       const { headline, description, images, links } = article;
 
       // doesn't use an image if image[0] is undefined

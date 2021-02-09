@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SearchBar from "./SearchBar";
 import SportsNews from "./SportsNews";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -19,15 +18,10 @@ const NavBarContainer = styled(Row)`
 const NavigationBar = () => {
   const [clickedOn, setClickedOn] = useState("ALL");
   const [sportToFetch, setSportToFetch] = useState("ALL");
-  const [searchValue, setSearchValue] = useState("");
 
   const getSport = (sport) => {
     setSportToFetch(sport);
     setClickedOn(sport);
-  };
-
-  const handleOnChange = (event) => {
-    setSearchValue(event.target.value);
   };
 
   return (
@@ -39,15 +33,11 @@ const NavigationBar = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <DisplaySportLinks clickedOn={clickedOn} getSport={getSport} />
-              <SearchBar
-                handleOnChange={handleOnChange}
-                searchValue={searchValue}
-              />
             </Navbar.Collapse>
           </Navbar>
         </Col>
       </NavBarContainer>
-      <SportsNews sport={sportToFetch} searchValue={searchValue} />
+      <SportsNews sport={sportToFetch} />
     </div>
   );
 };
